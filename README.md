@@ -61,7 +61,11 @@ The function pid is called in [main.cpp](https://github.com/udacity/nd013-c6-con
 ### Step 1: Build the PID controller object
 Complete the TODO in the [pid_controller.h](https://github.com/udacity/nd013-c6-control-starter/tree/mathilde/project_c6/project/pid_controller/pid_controller.h) and [pid_controller.cpp](https://github.com/udacity/nd013-c6-control-starter/tree/mathilde/project_c6/project/pid_controller/pid_controller.cpp).
 
+
 Run the simulator and see in the desktop mode the car in the CARLA simulator. Take a screenshot and add it to your report. The car should not move in the simulation.
+
+![img1](./result/screenshot1.png)
+
 ### Step 2: PID controller for throttle:
 1) In [main.cpp](https://github.com/udacity/nd013-c6-control-starter/tree/mathilde/project_c6/project/pid_controller/main.cpp), complete the TODO (step 2) to compute the error for the throttle pid. The error is the speed difference between the actual speed and the desired speed.
 
@@ -104,10 +108,32 @@ pip3 install matplotlib
 
 Answer the following questions:
 - Add the plots to your report and explain them (describe what you see)
+
+  result 
+  
+   | **Steer** | **Throttle** |
+   |     :---:     |     :---:      |
+   | ![img2](./result/steer.png) | ![img3](./result/throttle.png) |
+   
+  From the plot, you can see the output is a little latency, especially when change the lane to pass the static vehicles.
+  
 - What is the effect of the PID according to the plots, how each part of the PID affects the control command?
+
+  -P Proportional — This term applies a proportion to the actual error. If we are too far from the goal, increase the value will close the reference target quickly.
+  -I Integral — The last term is used to correct a mechanical error so that use this term to penalize the sum of cumulative errors. 
+  -D Derivative — The purpose of the term D is to suppress this oscillation effect by adding a damping term to the formula.
+  
 - How would you design a way to automatically tune the PID parameters?
+
+  Twiddle algorithm.
+  
 - PID controller is a model free controller, i.e. it does not use a model of the car. Could you explain the pros and cons of this type of controller?
+ 
+  PID controller is the simplest algorithm and easy to deploy. In a real car, there will be a delay as the command propagates through the system. it's it's a difficult challenge for PID. 
+  
 - (Optional) What would you do to improve the PID controller?
+
+  I will use the average points error calculation to improve the PID controller
 
 
 ### Tips:
