@@ -119,8 +119,11 @@ Answer the following questions:
   
 - What is the effect of the PID according to the plots, how each part of the PID affects the control command?
 
-  -P Proportional — This term applies a proportion to the actual error. If we are too far from the goal, increase the value will close the reference target quickly.
+  -P Proportional — This term applies a proportion to the actual error. If we are too far from the goal, increase the value will close the reference 
+  target quickly.
+  
   -I Integral — The last term is used to correct a mechanical error so that use this term to penalize the sum of cumulative errors. 
+  
   -D Derivative — The purpose of the term D is to suppress this oscillation effect by adding a damping term to the formula.
   
 - How would you design a way to automatically tune the PID parameters?
